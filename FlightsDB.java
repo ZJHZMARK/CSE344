@@ -251,6 +251,7 @@ public class FlightsDB {
 
 			commitTransaction();
 			return RESERVATION_ADDED;
+
 		} catch (SQLException e) {
 			try {
 				rollbackTransaction();
@@ -259,6 +260,7 @@ public class FlightsDB {
 				return 0;
 			}
 		}
+
 	}
 
 	/** Cancels all reservations for the given user on the given flights. */
