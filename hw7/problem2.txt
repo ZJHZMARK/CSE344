@@ -1,0 +1,20 @@
+Create table InsuranceCo(name Varchar(100) primary key, phone Varchar(100));
+
+Create table Person(ssn Varchar(100) primary key,name Varchar(100));
+
+Create table Driver(licenseNo varchar(100) primary key,  ssn varchar(100) references Person(ssn),
+Unique(ssn));
+
+Create table ProfessionalDriver(licenceNo Varchar(100) Primary key, medicalHistory Varchar(1000), foreign key (licenceNo) references Driver);
+
+Create table NonProfessionalDriver(licenceNo Varchar(100) Primary key, foreign key(licenceNo) references Driver(licenceNo));
+
+Create table Vehicle(licencePlate Varchar(100) primary key, year int, maxLossDamage Int, maxLiability Int, name varchar(100) references InsuranceCo, ssn Varchar(100) references Person);
+
+
+Create table Car(licencePlate Varchar(100) Primary key, make Varchar(100), Foreign key(licencePlate) references Vehicle);
+
+Create table drives(Primary key(licenceNo, licencePlate), licenceNo varchar(100) references Driver, licensePlate Varchar(100) references Vehicle);
+
+Create table Truck(licencePlate Varchar(100) primary key, Capacity Int, licenceNo Varchar(100) references Driver(licenceNo), Foreign key(licencePlate) references Vehicle(licencePlate));
+

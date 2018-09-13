@@ -1,0 +1,50 @@
+/*Question 1*/
+Select count(*)
+from fbFacts
+
+
+
+/*Question 2*/
+select count(Distinct predicate)
+from fbFacts
+
+
+
+/*Question3*/
+select *
+from fbFacts
+where subject='/m/0284r5q'
+
+
+
+/*Question 4*/
+select count(*)
+from fbFacts
+where predicate = "/type/object/type" and obj = "/travel/travel_destination"
+
+
+
+/*Question5*/
+Select F2.context, count(*)
+from fbFacts F1, fbFacts F2, fbFacts F3
+where F1.PREDICATE = "/type/object/type" and F2.predicate="/type/object/name" and F1.SUBJECT = F2.SUBJECT AND F2.obj="/lang/en"
+and F3.predicate="travel/travel_destination/tourist_attractions" and F1.SUBJECT = F3.SUBJECT
+GROUP BY F2.context
+Order by count(*) desc, F2.context
+limit 20
+
+
+/*Question 6*/
+select subject, count(distinct predicate)
+from fbFacts
+group by subjects
+
+
+/*ADDITIONAL QUESTION*/
+/*question 1       B*/
+/*Question 2       B*/
+/*QUESTION 3       C*/
+/*Question 4       C*/
+/*Question 5       T F T F*/
+
+

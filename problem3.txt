@@ -1,0 +1,26 @@
+/*part a*/
+Create table InsuranceCo(name Varchar(100) primary key, phone Varchar(100));
+
+Create table Person(name Varchar(100), ssn Varchar(100) primary key);
+
+Create table Driver(licenseNo varchar(100) primary key,  ssn varchar(100) references Person);
+
+Create table ProfessionalDriver(licenceNo Varchar(100) Primary key, medicalHistory Varchar(1000), foreign key (licenceNo) references Driver);
+
+Create table NonProfessionalDriver(licenceNo Varchar(100) Primary key, foreign key(licenceNo) references Driver);
+
+Create table Vehicle(licencePlate Varchar(100) primary key, year int, maxLossDamage Int, maxLiability Int, name varchar(100) references InsuranceCo, ssn Varchar(100) references Person);
+
+
+Create table Car(licencePlate Varchar(100) Primary key, make Varchar(100), Foreign key(licencePlate) references Vehicle);
+
+Create table drives(Primary key(licenceNo, licencePlate), licenceNo varchar(100) references Driver, licensePlate Varchar(100) references Vehicle);
+
+Create table Truck(licencePlate Varchar(100) primary key, Capacity Int, licenceNo Varchar(100) references ProfessionalDriver, Foreign key(licencePlate) references Vehicle);
+
+/*part b*/
+/*I did not make a seperate relation for insurence, since it is a many to one relation from Vehicle to InsuranceCo, We only need to include it in Vehicle. */
+
+
+/*Part C*/
+/*Truck to ProfessionalDriver is many to one relation, thus we can include things in Truck, but for the replationship between NonProfessionalDriver it is many to many relationship. Thus, it is important to write out a seperatate relation for drives.*/

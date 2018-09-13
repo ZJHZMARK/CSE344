@@ -1,0 +1,19 @@
+/*I use Mircosoft Azure to run the queries*/
+/*runtime : 52 min*/
+/*result:
+/*subject	predicate	obj	context
+/m/0284r5q	/type/object/key	/wikipedia/en_id	9,327,603
+/m/0284r5q	/type/object/key	/wikipedia/en	Flyte_$0028chocolate_bar$0029
+/m/0284r5q	/type/object/key	/wikipedia/en_title	Flyte_$0028chocolate_bar$0029
+/m/0284r5q	/common/topic/article	/m/0284r5t	
+/m/0284r5q	/type/object/type	/common/topic	
+/m/0284r5q	/type/object/type	/food/candy_bar	
+/m/0284r5q	/type/object/type	/business/brand	
+/m/0284r5q	/type/object/type	/base/tagit/concept	
+/m/0284r5q	/food/candy_bar/manufacturer	/m/01kh5q	
+/m/0284r5q	/common/topic/notable_types	/business/brand	
+/m/0284r5q	/common/topic/notable_types	/food/candy_bar	
+/m/0284r5q	/food/candy_bar/sold_in	/m/09c7w0	
+/m/0284r5q	/common/topic/notable_for		{"types":[], "id":"/food/candy_bar", "property":"/type/object/type", "name":"Candy bar"}
+/m/0284r5q	/type/object/name	/lang/en	Flyte
+/m/0284r5q	/common/topic/image	/m/04v6jtv*/ */

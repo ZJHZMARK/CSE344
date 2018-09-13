@@ -1,0 +1,116 @@
+/*Question 1*/
+Select count(*)
+from fbFacts
+/*output*/
+/*563,980,447*/
+
+
+/*Question 2*/
+select count(Distinct predicate)
+from fbFacts
+/*output*/
+/*18,944*/
+
+
+/*Question3*/
+select *
+from fbFacts
+where subject='/m/0284r5q'
+/*output*/
+/*subject	predicate	obj	context
+/m/0284r5q	/type/object/key	/wikipedia/en_id	9,327,603
+/m/0284r5q	/type/object/key	/wikipedia/en	Flyte_$0028chocolate_bar$0029
+/m/0284r5q	/type/object/key	/wikipedia/en_title	Flyte_$0028chocolate_bar$0029
+/m/0284r5q	/common/topic/article	/m/0284r5t	
+/m/0284r5q	/type/object/type	/common/topic	
+/m/0284r5q	/type/object/type	/food/candy_bar	
+/m/0284r5q	/type/object/type	/business/brand	
+/m/0284r5q	/type/object/type	/base/tagit/concept	
+/m/0284r5q	/food/candy_bar/manufacturer	/m/01kh5q	
+/m/0284r5q	/common/topic/notable_types	/business/brand	
+/m/0284r5q	/common/topic/notable_types	/food/candy_bar	
+/m/0284r5q	/food/candy_bar/sold_in	/m/09c7w0	
+/m/0284r5q	/common/topic/notable_for		{"types":[], "id":"/food/candy_bar", "property":"/type/object/type", "name":"Candy bar"}
+/m/0284r5q	/type/object/name	/lang/en	Flyte
+/m/0284r5q	/common/topic/image	/m/04v6jtv*/
+
+
+/*Question 4*/
+select count(*)
+from fbFacts
+where predicate = "/type/object/type" and obj = "/travel/travel_destination"
+/*output*/
+/*295*/
+
+
+
+/*Question5*/
+Select f1.context as location, count(*) as cnt
+
+from fbFacts f1, fbFacts f2
+
+where f2.predicate='/travel/travel_destination/tourist_attractions' and f1.subject=f2.subject and f1.predicate='/type/object/name' and f1.obj='/lang/en'
+
+group by f1.context
+order by cnt desc, location
+
+limit 20
+/*output*/
+/*location	cnt
+
+London	109
+
+Norway	74
+
+Finland	59
+
+Burlington	41
+
+Rome	40
+
+Toronto	36
+
+Beijing	32
+
+Buenos Aires	28
+
+San Francisco	26
+
+Bangkok	20
+
+Munich	19
+
+Sierra Leone	19
+
+Vienna	19
+
+Montpelier	18
+
+Athens	17
+
+Atlanta	17
+
+Tanzania	17
+
+Berlin	16
+
+Laos	16
+
+Portland	15
+
+
+/*Question 6*/
+select A.cnt, count(*) as frequent
+from (select count(Distinct predicate) as cnt from fbFacts 
+	group by subject) as A
+Group by A.cnt
+
+
+/*ADDITIONAL QUESTION*/
+/*question 1       B*/
+/*Question 2       C*/
+/*QUESTION 3       D*/
+/*Question 4       B*/
+/*Question 5       F T F F*/
+
+
